@@ -1,0 +1,40 @@
+{
+  "name": "places-api",
+  "version": "1.0.0",
+  "description": "REST API which expose places consumed from different providers such as Google Places, FourSquare, Yelp, etc.",
+  "main": "index.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.8.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxmedina05/places-api.git"
+  },
+  "keywords": [
+    "places",
+    "api",
+    "node",
+    "express"
+  ],
+  "author": "Max Medina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxmedina05/places-api/issues"
+  },
+  "homepage": "https://github.com/maxmedina05/places-api#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "swagger-jsdoc": "^1.9.7",
+    "swagger-ui-express": "^3.0.8"
+  }
+}
