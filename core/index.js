@@ -18,12 +18,12 @@ io.on("connection", socket => {
     };
 
     providers = [...providers, newProvider];
-    console.log(`Provider ${newProvider.name} was subscribed!`);
+    console.log(`Provider ${newProvider.name} has subscribed!`);
   });
 
   socket.on("disconnect", () => {
     const provider = providers.find(p => p.id === socket.id);
-    console.log(`Provider ${provider.name} was unsubscribed!`);
+    console.log(`Provider ${provider.name} has unsubscribed!`);
     providers = providers.filter(p => p.id !== socket.id);
   });
 });

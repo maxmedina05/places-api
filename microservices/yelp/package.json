@@ -1,0 +1,20 @@
+{
+  "name": "yelp-microservice",
+  "version": "1.0.0",
+  "description": "Expose Businesses extracted from Yelp fusion API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Yelp"
+  ],
+  "author": "Max Medina",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "socket.io-client": "^2.1.1",
+    "yelp-fusion": "^2.0.3"
+  }
+}
