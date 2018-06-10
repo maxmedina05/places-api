@@ -13,7 +13,8 @@ function handleSubscribe(client, data) {
   const providers = providerManager.getProviders();
   providerManager.setProviders([...providers, newProvider]);
 
-  console.log(`${newProvider.name} has subscribed.`);
+  const now = new Date().toLocaleString();
+  console.log(`[${now}] - ${newProvider.name} has subscribed.`);
 }
 
 function handleUnsubscribe(client) {
@@ -21,7 +22,8 @@ function handleUnsubscribe(client) {
   const provider = providers.find(p => p.id === client.id);
   providerManager.setProviders(providers.filter(p => p.id !== client.id));
 
-  console.log(`${provider.name} unsubscribed.`);
+  const now = new Date().toLocaleString();
+  console.log(`[${now}] - ${provider.name} unsubscribed.`);
 }
 
 module.exports = function(server) {
