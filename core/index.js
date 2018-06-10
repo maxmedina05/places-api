@@ -4,7 +4,7 @@ const BASE_API_URL = "/api/v1";
 
 const app = require("express")();
 const server = require("http").Server(app);
-const websocketHandler = require("./src/websocket-handler")(server);
+const websocketHandler = require("./src/websocket-server")(server);
 
 app.use(`${BASE_API_URL}/places`, require("./src/places.router"));
 server.listen(PORT, () => {
