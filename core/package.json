@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,8 @@
     "socket.io": "^2.1.1",
     "swagger-jsdoc": "^1.9.7",
     "swagger-ui-express": "^3.0.8"
+  },
+  "devDependencies": {
+    "jest": "^23.1.0"
   }
 }

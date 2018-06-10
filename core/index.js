@@ -4,47 +4,9 @@ const BASE_API_URL = "/api/v1";
 
 const app = require("express")();
 const server = require("http").Server(app);
-const io = require("socket.io")(server);
-const axios = require("axios");
+const websocketHandler = require("./src/websocket-handler")(server);
 
-var providers = [];
-
-io.on("connection", socket => {
-  socket.on("subscribe", data => {
-    const newProvider = {
-      id: socket.id,
-      name: data.name,
-      url: data.url
-    };
-
-    providers = [...providers, newProvider];
-    console.log(`Provider ${newProvider.name} has subscribed!`);
-  });
-
-  socket.on("disconnect", () => {
-    const provider = providers.find(p => p.id === socket.id);
-    console.log(`Provider ${provider.name} has unsubscribed!`);
-    providers = providers.filter(p => p.id !== socket.id);
-  });
+app.use(`${BASE_API_URL}/places`, require("./src/places.router"));
+server.listen(PORT, () => {
+  console.log("Core service listening on port:", PORT);
 });
-
-app.get(BASE_API_URL + "/places", async (req, res) => {
-  const { query, latitude, longitude } = req.query;
-  let allPlaces = [];
-
-  for (const provider of providers) {
-    try {
-      const places = (await axios.get(
-        `${
-          provider.url
-        }?query=${query}&latitude=${latitude}&longitude=${longitude}`
-      )).data;
-
-      allPlaces = allPlaces.concat(allPlaces, places);
-    } catch (e) {}
-  }
-
-  res.json(allPlaces);
-});
-
-server.listen(PORT);
