@@ -12,6 +12,7 @@ FOURSQUARE_CLIENT_ID = env['FOURSQUARE_CLIENT_ID']
 FOURSQUARE_CLIENT_SECRET = env['FOURSQUARE_CLIENT_SECRET']
 WEBSOCKET_SERVER_ENDPOINT = env['WEBSOCKET_SERVER_ENDPOINT']
 FOURSQUARE_API_ENDPOINT = 'https://api.foursquare.com/v2/venues/search'
+FOURSQUARE_DETAILS_API_ENDPOINT = 'https://api.foursquare.com/v2/venues'
 PORT = '3300'
 MY_URL = 'http://localhost:{0}/venues'.format(PORT)
 
@@ -40,8 +41,8 @@ def getVenues():
     )
 
     places = []
-    response = requests.get(url=FOURSQUARE_API_ENDPOINT, params=params)
-    venues = response.json()['response']['venues']
+    data = requests.get(url=FOURSQUARE_API_ENDPOINT, params=params)
+    venues = data.json()['response']['venues']
 
     for venue in venues:
         newPlace = Place(
@@ -54,12 +55,13 @@ def getVenues():
                 'longitude': venue['location']['lng']
             },
             venue['location']['formattedAddress'][0],
-            ''
+            '{0}/{1}'.format(FOURSQUARE_DETAILS_API_ENDPOINT, venue['id'])
         )
         places.append(newPlace)
 
-    payload = json.dumps(places, default=Place.toDict)
-    return Response(payload, mimetype='application/json')
+    response = {'payload': places, "error": False}
+    response = json.dumps(response, default=Place.toDict)
+    return Response(response, mimetype='application/json')
 
 
 if __name__ == '__main__':
