@@ -28,7 +28,7 @@ app.get(BASE_API_URL + "/places", async (req, res) => {
   };
 
   const response = (await yelpClient.search(searchRequest)).jsonBody;
-  const places = response.businesses.map(b => ({
+  const businesses = response.businesses.map(b => ({
     id: b.id,
     provider: PROVIDER_NAME,
     name: b.name,
@@ -40,7 +40,10 @@ app.get(BASE_API_URL + "/places", async (req, res) => {
     address: makeFormattedAddress(b.location),
     uri: b.url
   }));
-  res.json(places);
+  res.json({
+    payload: businesses,
+    error: false
+  });
 });
 
 function makeFormattedAddress(location) {

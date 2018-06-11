@@ -1,7 +1,7 @@
 {
   "name": "places-api",
   "version": "1.0.0",
-  "description": "REST API which expose places consumed from different providers such as Google Places, FourSquare, Yelp, etc.",
+  "description": "REST API which expose places information consumed from different providers such as Google Places, FourSquare, Yelp, etc.",
   "main": "index.js",
   "engines": {
     "node": "8.9.4",
