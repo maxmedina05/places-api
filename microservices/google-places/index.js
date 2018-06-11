@@ -15,20 +15,9 @@ app.get("*", (req, res) => {
   res.status(404).send("Nothing here!");
 });
 
-app.use((err, req, res, next) => {
-  const error = {
-    name: err.name,
-    message: err.message
-  };
-
-  websocketClient.sendErrorMessage(error);
-
-  res.json({
-    payload: [],
-    error: error
-  });
-  next();
-});
+app.use(
+  require("./src/error-handler.middleware")(websocketClient.sendErrorMessage)
+);
 
 app.listen(PORT, () => {
   console.log(PROVIDER_NAME, "listening on port: ", PORT);
