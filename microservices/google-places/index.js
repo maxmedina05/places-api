@@ -9,7 +9,11 @@ const websocketClient = require("./src/websocket-client")({
   url: `http://localhost:${PORT}/places`
 });
 
-app.use("/places", require("./src/google-places.router"));
+app.use("/places", require("./src/google-places.router")(PROVIDER_NAME));
+
+app.get("*", (req, res) => {
+  res.status(404).send("Nothing here!");
+});
 
 app.use((err, req, res, next) => {
   const error = {
