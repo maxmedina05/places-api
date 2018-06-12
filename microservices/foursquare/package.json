@@ -1,0 +1,21 @@
+{
+  "name": "foursquare-microservice",
+  "version": "1.0.0",
+  "description": "Expose venues extracted from foursquare API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Yelp"
+  ],
+  "author": "Max Medina",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "socket.io-client": "^2.1.1"
+  }
+}

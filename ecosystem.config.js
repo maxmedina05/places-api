@@ -13,9 +13,8 @@ module.exports = {
       script: "./microservices/yelp/index.js"
     },
     {
-      name: "Foursquare Python API",
-      script: "./microservices/foursquare/index.py",
-      watch: true
+      name: "Foursquare API",
+      script: "./microservices/foursquare/index.js"
     }
   ]
 };
