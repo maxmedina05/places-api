@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const providerManager = require("./provider-manager");
-
+const { NoProviderAvailableException } = require("./exceptions");
 const router = express.Router();
 
 /**
@@ -39,10 +39,15 @@ const router = express.Router();
  */
 router.get("/", async (req, res, next) => {
   const { query, latitude, longitude, radius = 1000 } = req.query;
+  const providers = providerManager.getProviders();
   let places = [];
 
   try {
-    for (const provider of providerManager.getProviders()) {
+    if (!providers || providers.length === 0) {
+      throw new NoProviderAvailableException();
+    }
+
+    for (const provider of providers) {
       const response = (await axios.get(
         `${
           provider.url

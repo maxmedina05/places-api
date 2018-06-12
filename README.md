@@ -8,7 +8,10 @@ REST API which expose places information consumed from different providers such 
 
 My solution is based on microservices which subscribe to a core service. Each service runs independently and they’re completely decoupled from each other. Microservices communicate to the core service through websockets, if one service fails it will be automatically unsubscribed from the core service and won’t affect the whole process.
 Since each service is independent they can also be used as independent restful APIs but if the core service is running they will also subscribe to it.
+
 A user can request a list of places to the core service which will make a request to every provider that has subscribed to build the list of places.
+
+Note: A provider service could be written in any language as long as it handle websockets communication.
 
 ## Requirements
 
