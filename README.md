@@ -11,7 +11,7 @@ Since each service is independent they can also be used as independent restful A
 
 A user can request a list of places to the core service which will make a request to every provider that has subscribed to build the list of places.
 
-Note: A provider service could be written in any language as long as it handles WebSockets communication.
+Thanks to this architecture, another provider can be included without having to redeploy and even if this new provider is written in another language.
 
 ## Requirements
 
