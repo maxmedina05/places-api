@@ -33,8 +33,19 @@ const swaggerDefinition = {
       }
     },
     Response: {
-      type: "array",
-      items: { $ref: "#definitions/Place" }
+      properties: {
+        payload: {
+          type: "array",
+          items: { $ref: "#definitions/Place" }
+        },
+        error: {
+          type: "object",
+          properties: {
+            name: { type: "string" },
+            message: { type: "string" }
+          }
+        }
+      }
     }
   }
 };

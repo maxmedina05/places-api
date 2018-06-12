@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/.env" });
 const PORT = process.env.PORT || 3200;
 const SOCKET_SERVER = process.env.SOCKET_SERVER || "http://localhost:3000";
 const PROVIDER_NAME = "Yelp";

@@ -1,4 +1,3 @@
-require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const BASE_API_URL = "/api/v1";
 
@@ -11,6 +10,10 @@ const swaggerSpec = require("./swagger.config");
 
 app.use(`${BASE_API_URL}/places`, require("./src/places.router"));
 app.use(`${BASE_API_URL}/docs`, swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
+app.get("*", (req, res) => {
+  res.status(404).send("Nothing here!");
+});
 
 server.listen(PORT, () => {
   console.log("Core service listening on port:", PORT);

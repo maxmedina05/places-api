@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/.env" });
 const PORT = process.env.PORT || 3100;
 const PROVIDER_NAME = "Google Places";
 

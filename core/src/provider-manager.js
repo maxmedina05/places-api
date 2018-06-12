@@ -1,5 +1,6 @@
 /**
  * the collection storing the different providers
+ * This is a Singleton
  */
 var _providers = [];
 

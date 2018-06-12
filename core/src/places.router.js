@@ -26,6 +26,9 @@ const router = express.Router();
  *        in: query
  *        description:  Longitude of the location you want to search nearby.
  *        required: true
+ *      - name: radius
+ *        in: query
+ *        description: Radius of the location you want to search nearby in meters.
  *     responses:
  *       200:
  *         description: Return an array of places
@@ -35,21 +38,33 @@ const router = express.Router();
  *         description: Error
  */
 router.get("/", async (req, res) => {
-  const { query, latitude, longitude, radius = 1500 } = req.query;
+  const { query, latitude, longitude, radius = 1000 } = req.query;
   let places = [];
 
-  for (const provider of providerManager.getProviders()) {
-    const response = (await axios.get(
-      `${
-        provider.url
-      }?query=${query}&latitude=${latitude}&longitude=${longitude}&radius=${radius}`
-    )).data;
+  try {
+    for (const provider of providerManager.getProviders()) {
+      const response = (await axios.get(
+        `${
+          provider.url
+        }?query=${query}&latitude=${latitude}&longitude=${longitude}&radius=${radius}`
+      )).data;
 
-    const payload = response.payload;
-    places = [...places, ...payload];
+      const payload = response.payload;
+      places = [...places, ...payload];
+    }
+
+    res.json({
+      payload: places,
+      error: false
+    });
+  } catch (err) {
+    res.json({
+      payload: [],
+      error: {
+        message: err.message || err
+      }
+    });
   }
-
-  res.json(places);
 });
 
 module.exports = router;
