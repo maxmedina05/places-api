@@ -23,15 +23,20 @@ module.exports = providerName => {
 
   router.get("/", async (req, res, next) => {
     const { query, latitude, longitude, radius = 1000 } = req.query;
-
-    const searchRequest = {
-      term: query,
-      latitude,
-      longitude,
-      radius
-    };
-
     try {
+      if (typeof latitude === "undefined" || typeof longitude === "undefined") {
+        throw new Error(
+          "The latidude and/or longitude is missing or invalid ."
+        );
+      }
+
+      const searchRequest = {
+        term: query,
+        latitude,
+        longitude,
+        radius
+      };
+
       const response = (await yelpClient.search(searchRequest)).jsonBody;
       const businesses = response.businesses.map(b => ({
         id: b.id,

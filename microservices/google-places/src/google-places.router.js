@@ -79,10 +79,11 @@ async function searchByText(providerName, query) {
 module.exports = providerName => {
   router.get("/", async (req, res, next) => {
     const { query, latitude, longitude, radius = 1000 } = req.query;
-
     try {
       let places = [];
-      if (typeof latitude === "undefined" && typeof longitude === "undefined") {
+      if (typeof latitude === "undefined" || typeof longitude === "undefined") {
+        places = await searchByText(providerName, query);
+      } else {
         places = await searchbyLocation(
           providerName,
           query,
@@ -90,13 +91,12 @@ module.exports = providerName => {
           longitude,
           radius
         );
-      } else {
-        places = await searchByText(providerName, query);
       }
 
       res.json({
-        payload: places,
-        error: false
+        total: places.length,
+        error: false,
+        payload: places
       });
     } catch (err) {
       next(err);

@@ -37,6 +37,12 @@ module.exports = providerName => {
     };
 
     try {
+      if (typeof latitude === "undefined" || typeof longitude === "undefined") {
+        throw new Error(
+          "The latidude and/or longitude is missing or invalid ."
+        );
+      }
+
       const { response } = await request({
         uri: FOURSQUARE_API_ENDPOINT,
         qs: params,

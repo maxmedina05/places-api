@@ -8,6 +8,16 @@ class NoProviderAvailableException extends Error {
   }
 }
 
+class MissingOrInvalidParameter extends Error {
+  constructor(parameterName, ...args) {
+    super(...args);
+    this.name = "MISSING_OR_INVALID_PARAMETER";
+    this.message = `$The ${parameterName} parameter is missing or invalid.`;
+    Error.captureStackTrace(this, MissingOrInvalidParameter);
+  }
+}
+
 module.exports = {
-  NoProviderAvailableException
+  NoProviderAvailableException,
+  MissingOrInvalidParameter
 };

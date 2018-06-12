@@ -27,7 +27,8 @@ app.use((err, req, res, next) => {
     name: err.name,
     message: err.message
   };
-
+  const now = new Date().toLocaleString();
+  console.error(`[${now}] - ${error.name} - ${error.message}`);
   socket.emit(ERROR_EVENT, error);
 
   res.json({

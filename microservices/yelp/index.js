@@ -23,13 +23,15 @@ app.get("*", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(err);
   const error = {
     name: err.name,
     message: err.message
   };
-  socket.emit(ERROR_EVENT, error);
 
+  const now = new Date().toLocaleString();
+  console.error(`[${now}] - ${error.name} - ${error.message}`);
+
+  socket.emit(ERROR_EVENT, error);
   res.json({
     payload: [],
     error: error

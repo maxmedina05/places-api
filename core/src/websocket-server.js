@@ -32,9 +32,9 @@ function handleError(client, error) {
   const provider = providers.find(p => p.id === client.id);
 
   const now = new Date().toLocaleString();
-  console.log(`[${now}] - ${provider.name} failed.`);
-  console.log(`[${now}] - ${error.name} - ${error.message}`);
-  console.error(error);
+  console.error(`[${now}] - ${provider.name} failed.`);
+  console.error(`[${now}] - ${error.name} - ${error.message}`);
+  // console.error(error);
 }
 
 module.exports = function(server) {
