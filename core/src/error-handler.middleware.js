@@ -5,7 +5,7 @@ module.exports = (err, req, res, next) => {
     message: err.message
   };
 
-  res.json({
+  res.status(500).json({
     payload: [],
     error: error
   });

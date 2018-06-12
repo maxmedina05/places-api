@@ -20,3 +20,5 @@ app.use(require("./src/error-handler.middleware"));
 server.listen(PORT, () => {
   console.log("Core service listening on port:", PORT);
 });
+
+module.exports = app;
