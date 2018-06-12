@@ -75,9 +75,9 @@ if pm2 is not install you will have to start each instance individually:
     node microservices/yelp/index.js
     node microservices/foursquare/index.js
 
-After the services started you use it by making an http request. For example:
+After the service started you can use it by making a http request. For example:
 
-    curl http://localhost:3000/api/v1/places
+    curl http://localhost:3000/api/v1/places?query=Pizza&latitude=37.786882&longitude=-122.399972
 
 ## Documentation
 
