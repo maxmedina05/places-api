@@ -48,12 +48,11 @@ router.get("/", async (req, res, next) => {
     }
 
     for (const provider of providers) {
-      const response = (await axios.get(
-        `${
-          provider.url
-        }?query=${query}&latitude=${latitude}&longitude=${longitude}&radius=${radius}`
-      )).data;
+      const endpoint = `${
+        provider.url
+      }?query=${query}&latitude=${latitude}&longitude=${longitude}&radius=${radius}`;
 
+      const response = (await axios.get(endpoint)).data;
       const payload = response.payload;
       places = [...places, ...payload];
     }

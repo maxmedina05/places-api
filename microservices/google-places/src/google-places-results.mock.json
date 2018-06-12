@@ -1,0 +1,186 @@
+{
+  "html_attributions": [],
+  "results": [
+      {
+          "geometry": {
+              "location": {
+                  "lat": 18.4878231,
+                  "lng": -69.83196479999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 18.48917292989272,
+                      "lng": -69.83061497010728
+                  },
+                  "southwest": {
+                      "lat": 18.48647327010728,
+                      "lng": -69.83331462989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+          "id": "599bd94850c3a008ba68736e6d8ef194e2deecb3",
+          "name": "Pizza Hut",
+          "opening_hours": {
+              "open_now": true,
+              "weekday_text": []
+          },
+          "photos": [
+              {
+                  "height": 2448,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/110133779237018752249/photos\">Milca Peguero</a>"
+                  ],
+                  "photo_reference": "CmRaAAAAsiRcJ2VuToKOzqK1uBqo5Xw0Vqk1w61eMNZskKEiw1T_kMgsi6x_jjOw-W8_x5QNoKp-_Q5x02RrajC8zng2l41ziXAqkvFFSTw-fPTKHkSHSG4xVZmZFXsH6GehJ9SLEhB7xsywkLTM4TqAfWvH5w_XGhT0_BSt3A1aCWlaVLcH2N3CN6S8wA",
+                  "width": 3264
+              }
+          ],
+          "place_id": "ChIJaQrQbLeHr44R801esOBTKMk",
+          "rating": 4,
+          "reference": "CmRbAAAAAzOt_pSSgBW7YL1MOpzOgFdIAWkAprbvyKcIfj4q9quPnrDbyWBhTf9Dp9Ns3Yre9C5xa4v6IRhW0kbmcoVXP1OQwU8_nY79q3IzhPsOdGlJLrNXJRPBvgQsPNU4EROKEhAC1s1PEGOXkzi-J-0U-pKoGhRz-XvqSicUCCuWLUaffwnf2qw0Ww",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "vicinity": "Santo Domingo Este"
+      },
+      {
+          "geometry": {
+              "location": {
+                  "lat": 18.4930597,
+                  "lng": -69.8313754
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 18.49440952989272,
+                      "lng": -69.83002557010728
+                  },
+                  "southwest": {
+                      "lat": 18.49170987010728,
+                      "lng": -69.83272522989273
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+          "id": "6dd5e3756ec677918bbc7b52f3c3137d1e74275d",
+          "name": "Vella Pizza",
+          "opening_hours": {
+              "open_now": true,
+              "weekday_text": []
+          },
+          "photos": [
+              {
+                  "height": 900,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/110276351716578412827/photos\">Jose Miguel Valdez</a>"
+                  ],
+                  "photo_reference": "CmRaAAAATS940T94-x1tH9sHQi8yidXDHV4XQryk1p8N37_B8pR8HpGLLb1du3KQ1-nprMWbFuxbNJTSmfDgrTD4fMDXNtVXG8wHBkc6gaTxkS1N2LEqzm8qHx2DNocpCY9tIXS_EhCvu9np1gRDEV6a8fa2Rfo3GhSNgZPd9kopSR7QoEfA143tJFa5ag",
+                  "width": 720
+              }
+          ],
+          "place_id": "ChIJKyMSFrSHr44RFhtw-QBGHNo",
+          "rating": 4.1,
+          "reference": "CmRbAAAAEKQnAWGCItxfnS9MBOkQKc0sDFy75BCDc7J3ZCemlbmgw4luK2eGfvRIUjBH2zF0sVcC8HAEEPNOf3NnisU5C-qKNT4q4TraPQUpEP-6VFjujbbaE1L0DPMhVb6zGWufEhCajJ_oKMHbT2imXYgfVnImGhSGHAI7qSstEhDD1R4FkiOAkOYDhg",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "vicinity": "Santo Domingo Este"
+      },
+      {
+          "geometry": {
+              "location": {
+                  "lat": 18.4878192,
+                  "lng": -69.83196359999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 18.48910117989272,
+                      "lng": -69.83059207010727
+                  },
+                  "southwest": {
+                      "lat": 18.48640152010728,
+                      "lng": -69.83329172989271
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+          "id": "7ddc76c68d266878514c2605e342cc70e56b1b39",
+          "name": "Pizza Hut San Isidro",
+          "opening_hours": {
+              "open_now": true,
+              "weekday_text": []
+          },
+          "photos": [
+              {
+                  "height": 3024,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/105931663616319475400/photos\">A Google User</a>"
+                  ],
+                  "photo_reference": "CmRaAAAACyZzf6o57H-mkrBZbwNfpHdVu-XWeugDcz7878SMSkofDN7uomiNN0-xuD51hJiTAuydRQ0sUJ6THH5S2vPHT64-xFsG0XobzkoWi2-eNbP_7Q-vshoIPGSZkDpo40uCEhDN_dcjzylxNxmZGKPqdrpDGhTi6qFPd7LmUfv7B6tKQ2njbtZIfg",
+                  "width": 4032
+              }
+          ],
+          "place_id": "ChIJR3p5nLeHr44RfkXLRS5SWF0",
+          "rating": 3.5,
+          "reference": "CmRbAAAAj9LMFLsvmuWAyp4-wLngqLO5ImLSwBW9CPuw_H3qFSlfIURMzr-vrWErFr3W5dNjuzbP0nqIesBauIzo0tKhX6EhSrhHf600dDwaDWs6U5_w4CxiPX_5j7xsVg5szFOXEhCKNssJxDICv1jjXTab4nxXGhRSyPKqqhZW10bIZ5TkEHdhN3lflQ",
+          "scope": "GOOGLE",
+          "types": [
+              "meal_delivery",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "vicinity": "Autopista Coronel Rafael Tomás Fernández Domínguez, Santo Domingo Este"
+      },
+      {
+          "geometry": {
+              "location": {
+                  "lat": 18.4650856,
+                  "lng": -69.81332259999999
+              },
+              "viewport": {
+                  "northeast": {
+                      "lat": 18.46636102989272,
+                      "lng": -69.81197932010728
+                  },
+                  "southwest": {
+                      "lat": 18.46366137010727,
+                      "lng": -69.81467897989272
+                  }
+              }
+          },
+          "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+          "id": "c40bcd5ddefdc3a13ec62988330abd97abe315e1",
+          "name": "The Pizza House",
+          "photos": [
+              {
+                  "height": 1920,
+                  "html_attributions": [
+                      "<a href=\"https://maps.google.com/maps/contrib/116993041240882345999/photos\">Curiosidades Y Tendencias</a>"
+                  ],
+                  "photo_reference": "CmRaAAAA0P0aeUwDvauVDp-Mkw7hrn_WSUChfhQDM7FPeEY9yjyshJQc3eyIJMFE6ntOLR6TVgpOmQ7ob0bqRuF7F3Cy20rsf5E_oSdGJzhy0ktdfyNFIGbBMAmzDQmGPLD70cOeEhAUy0eYmVjkBkIpGJc3KJN2GhSKLv8k9Pio2RZQvytAH2srJ0yFNw",
+                  "width": 1080
+              }
+          ],
+          "place_id": "ChIJn6UOmZ2Hr44Ricg-Eb9XDjU",
+          "rating": 3.4,
+          "reference": "CmRbAAAAU1aq_bnVT5FJtNnBagn9k0sXm5w3yOKTl7EvphJnyfWULKHVyJ2KOC335iJAJnizCGOkIEuqb8E-qifMSh1ya4cyOmf1hUpGjlf44oLQnTHb9NDRXdxZ9iKOf_4SC78cEhAznml6Q3VLBW2ediWgviw8GhS9kCJxL-bVb1x10Qnv1N6VGnpjlg",
+          "scope": "GOOGLE",
+          "types": [
+              "restaurant",
+              "food",
+              "point_of_interest",
+              "establishment"
+          ],
+          "vicinity": "Av Las Américas, Santo Domingo Este"
+      }
+  ],
+  "status": "OK"
+}

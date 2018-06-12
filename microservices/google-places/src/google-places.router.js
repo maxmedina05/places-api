@@ -1,6 +1,8 @@
 const express = require("express");
-const router = express.Router();
 const axios = require("axios");
+
+const router = express.Router();
+
 const {
   RequestDeniedException,
   ZeroResultsException,
@@ -9,37 +11,21 @@ const {
   UnknownErrorException
 } = require("./exceptions");
 
+const { buildListOfPlaces } = require("./place-builder");
+
+// this is an expression that builds the uri
+const uriBuilder = googlePlace =>
+  `${GOOGLE_PLACES_DETAILS_ENDPOINT}/json?placeid=${
+    googlePlace.place_id
+  }&key=${GOOGLE_PLACES_API_KEY}`;
+
 const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-const GOOGLE_PLACES_ENDPOINT =
+const GOOGLE_PLACES_NEARBY_SEARCH_ENDPOINT =
   "https://maps.googleapis.com/maps/api/place/nearbysearch";
+const GOOGLE_PLACES_SEARCH_BY_TEXT_ENDPOINT =
+  "https://maps.googleapis.com/maps/api/place/textsearch";
 const GOOGLE_PLACES_DETAILS_ENDPOINT =
   "https://maps.googleapis.com/maps/api/place/details";
-
-/**
- * returns a list of places.
- * Note: the description of each place is taken from the types fields
- * because Google Places doesn't provide a description field and the
- * types array contains different labels that decribe the returned place.
- *
- * @param {string} providerName
- * @param {result[]} results
- */
-function buildPlacesList(providerName, results) {
-  return results.map(r => ({
-    id: r.place_id,
-    provider: providerName,
-    name: r.name,
-    description: r.types.join(" - "),
-    location: {
-      latitude: r.geometry.location.lat,
-      longitude: r.geometry.location.lng
-    },
-    address: r.vicinity,
-    uri: `${GOOGLE_PLACES_DETAILS_ENDPOINT}/json?placeid=${
-      r.place_id
-    }&key=${GOOGLE_PLACES_API_KEY}`
-  }));
-}
 
 function throwStatusError(status) {
   switch (status) {
@@ -60,23 +46,58 @@ function throwStatusError(status) {
   }
 }
 
+async function searchbyLocation(
+  providerName,
+  query,
+  latitude,
+  longitude,
+  radius
+) {
+  const endpoint = `${GOOGLE_PLACES_NEARBY_SEARCH_ENDPOINT}/json?keyword=${query}&key=${GOOGLE_PLACES_API_KEY}&location=${latitude},${longitude}&radius=${radius}`;
+  const { results, status } = (await axios.get(endpoint)).data;
+
+  if (status === "OK") {
+    const places = buildListOfPlaces(results, providerName, uriBuilder);
+    return places;
+  }
+
+  throwStatusError(status);
+}
+
+async function searchByText(providerName, query) {
+  const endpoint = `${GOOGLE_PLACES_SEARCH_BY_TEXT_ENDPOINT}/json?query=${query}&key=${GOOGLE_PLACES_API_KEY}`;
+  const { results, status } = (await axios.get(endpoint)).data;
+
+  if (status === "OK") {
+    const places = buildListOfPlaces(results, providerName, uriBuilder);
+    return places;
+  }
+
+  throwStatusError(status);
+}
+
 module.exports = providerName => {
   router.get("/", async (req, res, next) => {
     const { query, latitude, longitude, radius = 1000 } = req.query;
-    const endpoint = `${GOOGLE_PLACES_ENDPOINT}/json?keyword=${query}&key=${GOOGLE_PLACES_API_KEY}&location=${latitude},${longitude}&radius=${radius}`;
 
     try {
-      const { results, status } = (await axios.get(endpoint)).data;
-      if (status === "OK") {
-        const places = buildPlacesList(providerName, results);
-
-        res.json({
-          payload: places,
-          error: false
-        });
+      let places = [];
+      if (typeof latitude === "undefined" && typeof longitude === "undefined") {
+        places = await searchbyLocation(
+          providerName,
+          query,
+          latitude,
+          longitude,
+          radius
+        );
       } else {
-        throwStatusError(status);
+        places = await searchByText(providerName, query);
       }
+
+      res.json({
+        payload: places,
+        error: false
+      });
     } catch (err) {
       next(err);
     }

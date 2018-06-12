@@ -12,7 +12,7 @@ class ZeroResultsException extends Error {
     super(...args);
     this.name = "ZERO_RESULTS";
     this.message =
-      "The request was successful but no results were returned. The latLng is invalid.";
+      "The request was successful but no results were returned. The latitude and/or longitude is invalid.";
     Error.captureStackTrace(this, ZeroResultsException);
   }
 }
