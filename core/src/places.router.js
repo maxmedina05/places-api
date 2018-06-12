@@ -31,7 +31,7 @@ const router = express.Router();
  *        description: Radius of the location you want to search nearby in meters.
  *     responses:
  *       200:
- *         description: Return an array of places
+ *         description: Return an object containing an array of places
  *         schema:
  *          $ref: '#/definitions/Response'
  *       400:

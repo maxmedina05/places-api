@@ -81,7 +81,7 @@ After the services started you use it by making an http request. For example:
 
 ## Documentation
 
-After the services started you can also browse to the online API documentation:
+After the services started you can also browse to the API documentation:
 
 - http://localhost:3000/api/v1/docs
 

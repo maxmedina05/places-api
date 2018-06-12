@@ -50,8 +50,10 @@ const swaggerDefinition = {
   }
 };
 const options = {
-  swaggerDefinition: swaggerDefinition,
-  apis: ["./src/*.router.js"]
+  swaggerDefinition,
+  apis: [__dirname + "/src/*.router.js"]
 };
+
+console.log(options.apis[0]);
 
 module.exports = swaggerJSDoc(options);
