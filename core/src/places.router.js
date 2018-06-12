@@ -37,7 +37,7 @@ const router = express.Router();
  *       400:
  *         description: Error
  */
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   const { query, latitude, longitude, radius = 1000 } = req.query;
   let places = [];
 
@@ -58,12 +58,7 @@ router.get("/", async (req, res) => {
       error: false
     });
   } catch (err) {
-    res.json({
-      payload: [],
-      error: {
-        message: err.message || err
-      }
-    });
+    next(err);
   }
 });
 

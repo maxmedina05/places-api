@@ -15,6 +15,8 @@ app.get("*", (req, res) => {
   res.status(404).send("Nothing here!");
 });
 
+app.use(require("./src/error-handler.middleware"));
+
 server.listen(PORT, () => {
   console.log("Core service listening on port:", PORT);
 });
