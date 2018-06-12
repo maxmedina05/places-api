@@ -7,4 +7,7 @@ bash -c 'npm install'
 cd ../
 cd yelp
 bash -c 'npm install'
+cd ../
+cd foursquare
+bash -c 'npm install'
 cd ../..

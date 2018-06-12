@@ -6,4 +6,7 @@ call npm install
 cd ../
 cd yelp
 call npm install
+cd ../
+cd foursquare
+call npm install
 cd ../..
