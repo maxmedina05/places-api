@@ -6,7 +6,6 @@ const SUBSCRIBE_EVENT = "subscribe";
 const ERROR_EVENT = "provider-error";
 
 function sendErrorMessage(client, error) {
-  console.log("sendErrorMessage");
   client.emit(ERROR_EVENT, error);
 }
 

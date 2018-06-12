@@ -68,11 +68,10 @@ def getVenues():
 if __name__ == '__main__':
 
     try:
-        socket = SocketIO('localhost', 3000)
+        socket = SocketIO('localhost', 3000, wait_for_connection=False)
         socket.emit('subscribe', provider)
         socket.wait(seconds=1)
-
     except ConnectionError:
-        print('The server is down. Try again later.')
+        print('The websocket server is down. Try again later.')
 
     app.run(port=PORT)
